@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traffic Light Simulation</title>
+<style>
+  body {
+    background-image: url('traffic.jpg');
+    background-size: cover;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  .traffic-light-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: black;
+    border-radius: 20px;
+  }
+  .traffic-light {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .light {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+  }
+  #red { background-color: grey; }
+  #yellow { background-color: grey; }
+  #green { background-color: grey; }
+
+  #change-light-btn {
+    font-size: 24px;
+    color: #ffffff;
+    padding: 10px 20px;
+    background-color: #1b6ea1;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  #change-light-btn:hover {
+    background-color: #13547a;
+  }
+  #timer {
+    font-size: 18px;
+    color: red;
+  }
+  #indicator {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  #timer-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="traffic-light-box">
+    <div class="traffic-light">
+      <div id="red" class="light">🔴</div>
+      <div id="yellow" class="light">🟡</div>
+      <div id="green" class="light">🟢</div>
+    </div>
+    <div id="indicator">
+      <div id="timer-container">
+        <div id="timer">10</div>
+      </div>
+    </div>
+  </div>
+  <button id="change-light-btn" onclick="startTrafficLight()">Start</button>
+</div>
+
+<script>
+  let lightIndex = 0;
+  const lights = document.querySelectorAll('.light');
+  let changeInterval;
+  let timerInterval;
+  let timerValue = 10;
+
+  function changeLight() {
+    lights.forEach(light => light.style.backgroundColor = 'grey');
+    lights[lightIndex].style.backgroundColor = lights[lightIndex].id;
+    lightIndex = (lightIndex + 1) % 3;
+    timerValue = 10; // Reset timer for each light change
+  }
+
+  function startTimer() {
+    timerInterval = setInterval(function() {
+      document.getElementById('timer').textContent = timerValue;
+      if (timerValue === 1) {
+        timerValue = 10;
+      } else {
+        timerValue--;
+      }
+    }, 1000);
+  }
+
+  function startTrafficLight() {
+    clearInterval(changeInterval);
+    clearInterval(timerInterval);
+    lightIndex = 0; // Reset to the first light
+    changeLight(); // Initial light change
+    startTimer();
+    changeInterval = setInterval(changeLight, 10000);
+  }
+</script>
+
+</body>
+</html>

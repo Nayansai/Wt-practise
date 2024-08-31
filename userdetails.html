@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Details</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-image: url(background9.jpg);
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+      .container1 {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 20px;
+        background-color: white;
+      }
+
+      h1 {
+        text-align: center;
+        color: rgb(43, 39, 39);
+      }
+
+      form {
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+        color:#0f577e;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border-radius: 7px;
+      }
+
+      button {
+        padding: 8px 20px;
+        background-color: #68bdf6;
+        color: #fff;
+        border: none;
+        margin-top: 30px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .button_align {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      button:hover {
+        background-color: #669ed3;
+      }
+
+      #userDetails {
+        margin-top: 20px;
+        color: black;
+      }
+
+      #userDetails h2 {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      #userDetails p {
+        margin-bottom: 5px;
+      }
+
+      .container1 h3 {
+        text-align: center;
+        color: rgba(43, 39, 39, 0.7);
+      }
+    </style>
+  </head>
+  <body
+    
+  >
+    <div class="container">
+      <h1>User Search</h1>
+
+      <form id="searchForm">
+        <label for="userID">Enter User ID:</label>
+        <input type="text" id="userID" name="userID" />
+        <div class="button_align">
+          <button type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+    <div class="container1">
+      <h3>Details Shown Here!</h3>
+      <div id="userDetails"></div>
+    </div>
+
+    <script>
+      const users = {
+        1: {
+          name: "vamsi",
+          email: "himavamsi.kummari@gmail.com",
+          role: "software engineer",
+        },
+        2: {
+          name: "srikar",
+          email: "srikar@gmail.com",
+          role: "software engineer",
+        },
+        3: {
+          name: "sandeep",
+          email: "sandeep@gmail.com",
+          role: "software engineer",
+        },
+        4: {
+          name: "siddarth",
+          email: "siddarth@gmail.com",
+          role: "software engineer",
+        },
+        5: {
+          name: "shubham",
+          email: "shubham@gamil.com",
+          role: "software engineer",
+        },
+        6: {
+          name: "gajanlal",
+          email: "gajanlal@gmail.com",
+          role: "software engineer",
+        },
+        7: {
+          name: "nayan sai",
+          email: "nayansai@gmail.com",
+          role: "software engineer",
+        },
+        8: {
+          name: "varun",
+          email: "varun@gmail.com",
+          role: "software engineer",
+        },
+      };
+
+      function getUserDetails(userID) {
+        const user = users[userID];
+        if (user) {
+          displayUserDetails(user.name, user.email, user.role);
+        } else {
+          UserNotFound();
+        }
+      }
+
+      function displayUserDetails(name, email, role) {
+        document.getElementById("userDetails").innerHTML = `
+                <h2>User Details</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Role:</strong> ${role}</p>
+            `;
+      }
+
+      function UserNotFound() {
+        document.getElementById("userDetails").innerHTML =
+          "<p>User not found.</p>";
+      }
+
+      document
+        .getElementById("searchForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const userID = document.getElementById("userID").value;
+          getUserDetails(userID);
+        });
+    </script>
+  </body>
+</html>

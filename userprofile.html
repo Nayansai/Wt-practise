@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #FF8C00, #FFD700);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px; 
+            margin: 50px auto; 
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-img img {
+            border-radius: 50%; 
+            border: 5px solid #fff; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+        }
+
+        .label-span {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .label-span label {
+            flex: 1;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .label-span span {
+            flex: 2;
+            color: #666;
+        }
+
+        .bio-label {
+            margin-top: 20px;
+        }
+
+        .bio-label label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .bio-label p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Profile</h2>
+        <div class="profile-img">
+            <img src="profile.jpg" alt="Profile Picture" width="175">
+        </div>
+        <div class="label-span">
+            <label for="employeename">Name:</label>
+            <span id="employeename">Nayan</span>
+        </div>
+        <div class="label-span">
+            <label for="email">Email:</label>
+            <span id="email">nayan@gmail.com</span>
+        </div>
+        <div class="label-span">
+            <label for="age">Age:</label>
+            <span id="age">30</span>
+        </div>
+        <div class="label-span">
+            <label for="gender">Gender:</label>
+            <span id="gender">Male</span>
+        </div>
+        <div class="label-span">
+            <label for="work">Work type:</label>
+            <span id="work">Remote</span>
+        </div>
+        <div class="bio-label">
+            <label for="bio">Bio:</label>
+            <p id="bio">I am a passionate software developer with 5 years of experience. I specialize in web development using modern technologies such as React.js and Node.js. In my free time, I enjoy playing guitar and hiking in the mountains.</p>
+        </div>
+    </div>
+</body>
+</html>

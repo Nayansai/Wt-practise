@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keyboard Events</title>
+<style>
+    body{
+        background-image: url('background7.jpg');
+    }
+  #eventDetails {
+    margin-top: 20px;
+    padding: 70px;
+    border: 10px solid #f00;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 150px;
+    padding-right: 150px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: x-large;
+    background-color: #ffffff;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 0;
+    color: #ffffff;
+    padding: 10px;
+    background-color: brown;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+</style>
+</head>
+<body>
+
+<h2>Press keys on your keyboard</h2>
+<div id="eventDetails"></div>
+
+<script >
+    function displayKeyEvent(event) {
+    var eventDetailsDiv = document.getElementById('eventDetails');
+    eventDetailsDiv.innerHTML = '<h3>Key Event Details:</h3>' +
+                                 '<p><strong>Event Type:</strong> ' + event.type + '</p>' +
+                                 '<p><strong>Key Code:</strong> ' + event.keyCode + '</p>' +
+                                 '<p><strong>Key:</strong> ' + event.key + '</p>' +
+                                 '<p><strong>Key Location:</strong> ' + event.location + '</p>' +
+                                 '<p><strong>Ctrl Key Pressed:</strong> ' + event.ctrlKey + '</p>' +
+                                 '<p><strong>Shift Key Pressed:</strong> ' + event.shiftKey + '</p>' +
+                                 '<p><strong>Alt Key Pressed:</strong> ' + event.altKey + '</p>' +
+                                 '<p><strong>Meta Key Pressed:</strong> ' + event.metaKey + '</p>' +
+                                 '<hr>';
+}
+
+
+window.addEventListener('keydown', function(event) {
+    displayKeyEvent(event);
+});
+
+
+window.addEventListener('keyup', function(event) {
+    displayKeyEvent(event);
+});
+
+
+window.addEventListener('keypress', function(event) {
+    displayKeyEvent(event);
+});
+
+</script>
+
+</body>
+</html>

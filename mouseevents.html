@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mouse Events</title>
+<style>
+    body {
+        background-image: url(background3.jpg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        text-align: center;
+        line-height: 200px;
+        margin: 20px;
+        border: 2px solid lightgrey;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+        font-family: Arial, sans-serif;
+        cursor: pointer;
+    }
+
+    .box:hover {
+        background-color: rgb(136, 233, 136);
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="box" id="box1">Click on it!</div>
+    <div class="box" id="box2">Click on it!</div>
+    <div class="box" id="box3">Click on it!</div>
+    <div class="box" id="box4">Click on it!</div>
+    <div class="box" id="box5">Click on it!</div>
+    <div class="box" id="box6">Click on it!</div>
+    <div class="box" id="box7">Click on it!</div>
+    <div class="box" id="box8">Click on it!</div>
+    <div class="box" id="box9">Click on it!</div>
+    <div class="box" id="box10">Click on it!</div>
+</div>
+
+<script>
+
+var box1 = document.getElementById("box1");
+var box2 = document.getElementById("box2");
+var box3 = document.getElementById("box3");
+var box4 = document.getElementById("box4");
+var box5 = document.getElementById("box5");
+var box6 = document.getElementById("box6");
+var box7 = document.getElementById("box7");
+var box8 = document.getElementById("box8");
+var box9 = document.getElementById("box9");
+var box10 = document.getElementById("box10");
+
+box1.addEventListener("mouseover", function(event) {
+        this.style.backgroundColor = "lightgreen";
+        this.innerHTML = "Mouse Over";
+    });
+
+
+    box2.addEventListener("mouseout", function(event) {
+        this.style.backgroundColor = "lightgreen";
+        this.innerHTML = "Hover over me";
+    });
+
+   
+    box3.addEventListener("mousemove", function(event) {
+        var x = event.clientX - this.offsetLeft;
+        var y = event.clientY - this.offsetTop;
+        this.innerHTML = "Mouse Move: " + x + ", " + y;
+    });
+
+
+    box4.addEventListener("mousedown", function(event) {
+        this.style.backgroundColor = "lightgreen";
+        this.innerHTML = "Mouse Down";
+    });
+
+
+    box5.addEventListener("mouseup", function(event) {
+        this.style.backgroundColor = "lightgreen";
+        this.innerHTML = "Mouse Up";
+    });
+
+    
+    box6.addEventListener("click", function(event) {
+        this.innerHTML = "Clicked";
+        this.style.backgroundColor = "lightgreen";
+    });
+
+  
+    box7.addEventListener("dblclick", function(event) {
+        this.innerHTML = "Double Clicked";
+        this.style.backgroundColor = "lightgreen";
+    });
+
+  
+    box8.addEventListener("contextmenu", function(event) {
+        event.preventDefault(); 
+        this.innerHTML = "Right Clicked";
+        this.style.backgroundColor = "lightgreen";
+    });
+
+    
+    box9.addEventListener("mouseenter", function(event) {
+        this.innerHTML = "Mouse Entered";
+        this.style.backgroundColor = "lightgreen";
+    });
+
+
+    box10.addEventListener("mouseleave", function(event) {
+        this.innerHTML = "Mouse Left";
+        this.style.backgroundColor = "lightgreen";
+    });
+
+</script>
+</body>
+</html>

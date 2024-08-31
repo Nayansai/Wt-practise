@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Login Page</title>
+ <link rel="stylesheet" href="login.css">
+  
+ <style>
+    div{
+margin: auto;
+color: #ffffff;
+max-width: 372px;
+padding: 21px;
+border: 12px solid #19425e;
+background-image: url(background1.jpg);
+font-size: larger;
+
+}
+
+.button-container{
+display: flex;
+justify-content: space-between;
+border-radius: 20px;
+}
+
+button{
+padding: 15px;
+color: #ffffff ;
+background-color: #cf4242;
+cursor: pointer;
+font-size: 20px;
+border-radius: 10px;
+}
+
+button:hover{
+background-color: #404040;
+}
+</style>
+  
+  <script>
+  
+    const correctPassword = "abc@123";
+
+    function login(event) 
+  {
+        event.preventDefault();
+        let passwordInput = document.getElementById("password");
+        let enteredPassword = passwordInput.value;
+0
+      
+      
+      
+        if (enteredPassword === correctPassword) 
+    {
+            alert("Hahaha ! Login successful!");
+            window.location.href = "registration.html"; 
+        }
+    else 
+    {
+            alert("Login failed. Incorrect password, Try again - ");
+        }
+    }
+  
+  
+  </script>
+</head>
+<body>
+ <div>
+    <h2>Login</h2>
+    <form onsubmit="login(event)">
+        <div>
+            <label for="username">ID:</label><br>
+            <input type="text" id="username" name="username" required >
+        </div><br>
+        <div>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required>
+        </div><br>
+        <div class="button-container">
+            <button type="submit">Login</button>
+            <button type="reset">Resubmit</button>
+        </div>
+    </form>
+ </div>
+</body>
+</html>
